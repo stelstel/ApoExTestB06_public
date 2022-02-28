@@ -105,12 +105,11 @@ namespace ApoExTestB01.Controllers
                 }
                 catch (Exception e)
                 {
-                    // Console.WriteLine(e.Message, e);
                     ViewBag.msgTsUSer = "Something went wrong. Please try again!";
                 }
             }
 
             return View("BeerIndex", lst10Beers);
         }
-         }
+    }
 }
