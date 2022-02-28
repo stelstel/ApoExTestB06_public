@@ -126,7 +126,7 @@ body {
     margin: 1em 1em 0.5em auto;
 }
 
-p#nr-od-beers {
+p.nr-of-beers {
     font-weight: bold;
 }
 

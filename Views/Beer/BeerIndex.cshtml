@@ -37,7 +37,14 @@
 
 @if(Model != null)
 {
-    <p id="nr-od-beers">@ViewBag.nrOfBeers beers found:</p>
+    @if (@ViewBag.nrOfBeers == 1)
+    {
+        <p class="nr-of-beers">One beer found:</p> 
+    }
+    else
+    {
+        <p class="nr-of-beers">@ViewBag.nrOfBeers beers found:</p>
+    }
 
     <div class="container-fluid">
         <div class="row header-row">
