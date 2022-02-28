@@ -1,0 +1,126 @@
+﻿@model IEnumerable<ApoExTestB01.Models.Beer>
+
+@{
+    ViewData["Title"] = "Search for beers";
+}
+
+@if (ViewBag.msgToUser != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.msgToUser
+    </div>
+}
+
+<h1>Beers</h1>
+
+<div class="searchForm">
+    <form asp-controller="Beer" asp-action?="Index" method="get">
+        <label for="searchstring">Search for beers:</label>
+        <input type="text" value="@ViewBag.searchstring" id="searchstring" name="searchstring" minlength="3" required>
+        <input type="hidden" id="page" name="page" value="1">
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+
+@if (Model == null && ViewBag.searchstring != null)
+{
+    <div class="alert alert-warning" role="alert">
+        Your search did not match any beers. Please try again!
+    </div>
+}
+
+@if (Model == null)
+{
+    <img id="frontpage-beer" src="https://images.punkapi.com/v2/94.png" alt="A bottle of beer" />
+}
+
+@if(Model != null)
+{
+    <p id="nr-od-beers">@ViewBag.nrOfBeers beers found:</p>
+
+    <div class="container-fluid">
+        <div class="row header-row">
+            <div class="col-7">
+                @Html.DisplayNameFor(model => model.Name)
+            </div>
+            <div class="col-2">
+                @Html.DisplayNameFor(model => model.Abv)
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="row beer-row">
+                <div class="col-7">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </div>
+                <div class="col-2">
+                    @Html.DisplayFor(modelItem => item.Abv)
+                </div>
+                <div class="col-3">
+                    <a href="#" class="details-link" id="@item.Id">Show details</a>
+                </div>
+            </div>
+
+            <div class="row header-row description-header-row" id="description-header-row-@item.Id">
+                <div class="col">
+                    Description:
+                </div>
+            </div>
+
+            <div class="row description-row" id="description-row-@item.Id">
+                <div class="col">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </div>
+            </div>
+
+            <div class="row header-row food-row food-header" id="food-header-@item.Id">
+                <div class="col">
+                    Dishes suiting this beer:
+                </div>
+            </div>
+
+            <div class="foods-wrapper-row foods-wrapper-row-@item.Id">
+                <div class="col">
+                    <ul class="food-list food-list-@item.Id">
+                        @foreach (var food in item.Food_pairing)
+                        {
+                            <li>
+                                @Html.DisplayFor(modelItem => food)
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+
+    <nav class="nav nav-pills pagination justify-content-center">
+        @if (ViewBag.nrOfBeers > 10)
+        {
+
+            @for (int i = 0; i < (ViewBag.nrOfBeers - 1) / 10 + 1; i++)
+            {
+                @if (ViewBag.page == i + 1)
+                {
+                    @Html.ActionLink("Page " + (i + 1),
+                        "Index", "Beer",
+                        new { searchstring = ViewBag.searchString, page = i + 1 },
+                        new { @class = "nav-link active" }
+                    );
+                }
+                else
+                {
+                    @Html.ActionLink("Page " + (i + 1),
+                        "Index", "Beer",
+                        new { searchstring = ViewBag.searchString, page = i + 1 },
+                        new { @class = "nav-link" }
+                    );
+                }
+            }
+        }
+    </nav>
+}
