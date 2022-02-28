@@ -100,7 +100,7 @@ namespace ApoExTestB01.Controllers
                     }
                     else
                     {
-                        throw new WebException();
+                        throw new Exception();
                     }
                 }
                 catch (Exception e)
