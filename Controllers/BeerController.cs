@@ -12,7 +12,7 @@ namespace ApoExTestB01.Controllers
 {
     public class BeerController : Controller
     {
-        private HttpClient m_HttpClient;
+        private readonly HttpClient m_HttpClient;
 
         /// <summary>
         /// Constructor
@@ -81,7 +81,7 @@ namespace ApoExTestB01.Controllers
 
                             for (int i = beersPerPage * (page - 1); i < page * beersPerPage; i++)
                             {
-                                if (i < lstBeers.Count())
+                                if (i < lstBeers.Count)
                                 {
                                     lst10Beers.Add(lstBeers[i]);
                                 }
@@ -91,7 +91,7 @@ namespace ApoExTestB01.Controllers
                                 }
                             }
 
-                            ViewBag.nrOfBeers = lstBeers.Count();
+                            ViewBag.nrOfBeers = lstBeers.Count;
                         }
                         else
                         {
