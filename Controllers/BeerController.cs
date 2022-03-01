@@ -26,9 +26,9 @@ namespace ApoExTestB01.Controllers
         /// <summary>
         /// Get results from search
         /// </summary>
-        /// <param name="searchString">The string that the user used</param>
-        /// <param name="page">The current result page</param>
-        /// <returns></returns>
+        /// <param name="searchString">The string to search for</param>
+        /// <param name="page">The current number of the result page</param>
+        /// <returns>A list of beers</returns>
         // Index: BeerController
         public async Task<ActionResult>Index(string searchString, int page)
         {
