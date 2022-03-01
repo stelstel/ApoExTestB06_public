@@ -29,7 +29,7 @@ namespace ApoExTestB01.Controllers
         /// <param name="searchString">The string that the user used</param>
         /// <param name="page">The current result page</param>
         /// <returns></returns>
-        // GET: BeerController
+        // Index: BeerController
         public async Task<ActionResult>Index(string searchString, int page)
         {
             int beersPerPage = 10;
@@ -103,7 +103,7 @@ namespace ApoExTestB01.Controllers
                         throw new Exception();
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     ViewBag.msgTsUSer = "Something went wrong. Please try again!";
                 }

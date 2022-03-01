@@ -12,5 +12,10 @@ namespace ApoExTestB01.Controllers
     public class HomeController : Controller
     {
         // private readonly ILogger<HomeController> _logger;
+
+        public RedirectToRouteResult Index()
+        {
+            return RedirectToRoute(new { controller = "Beer", action = "About" });
+        }
     }
 }
