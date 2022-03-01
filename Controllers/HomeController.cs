@@ -15,7 +15,7 @@ namespace ApoExTestB01.Controllers
 
         public RedirectToRouteResult Index()
         {
-            return RedirectToRoute(new { controller = "Beer", action = "About" });
+            return RedirectToRoute(new { controller = "Beer", action = "Index" });
         }
     }
 }
