@@ -39,8 +39,8 @@ namespace ApoExTestB01.Controllers
 
             if (!String.IsNullOrEmpty(searchString) && searchString.Length >= 3)
             {
-                searchString = searchString.Replace(" ", "_");
                 ViewBag.searchString = searchString;
+                searchString = searchString.Replace(" ", "_").Trim();
 
                 if (page < 1)
                 {
