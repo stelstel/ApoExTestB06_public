@@ -15,12 +15,17 @@ $(document).ready(function () {
             $(this).parent().parent().css("border-bottom", "none");
             $(this).text("Hide details");
 
-            // Current beer-row
+            // All .beer-row(s)
+            $(".beer-row .beer-name").css("opacity", "40%");
+            $(".beer-row .beer-apv").css("opacity", "40%");
+
+            // Current .beer-row
             $(this).parent().parent().css("font-size", "125%");
             $(this).parent().parent().css("border-top", "1px solid #000");
             $(this).parent().parent().css("background", "#b3d8f9");
+            $(this).parent().parent().children().css("opacity", "100%");
 
-            // Next beer-row
+            // Next .beer-row
             $(this).parent().parent().nextUntil(".beer-row").last().next().css("border-top", "2px solid rgb(0, 0, 0)");
         } else {
             reset();

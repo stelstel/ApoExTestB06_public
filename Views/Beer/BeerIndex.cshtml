@@ -61,10 +61,10 @@
         @foreach (var item in Model)
         {
             <div class="row beer-row">
-                <div class="col-7">
+                <div class="col-7 beer-name">
                     @Html.DisplayFor(modelItem => item.Name)
                 </div>
-                <div class="col-2">
+                <div class="col-2 beer-apv">
                     @Html.DisplayFor(modelItem => item.Abv)
                 </div>
                 <div class="col-3">
