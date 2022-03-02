@@ -9,8 +9,8 @@ $(document).ready(function () {
             reset();
 
             // Scroll to current .beer
-            var aTag = $(this);
-            $('html,body').animate({ scrollTop: aTag.offset().top });
+            var current = $(this);
+            $('html,body').animate({ scrollTop: current.offset().top });
 
             $("#description-header-row-" + id).css("display", "inline-block");
             $("#description-row-" + id).slideDown("slow");
