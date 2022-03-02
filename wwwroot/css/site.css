@@ -94,18 +94,37 @@ body {
     display: none;
 }
 
+.row.description-row,
+.foods-wrapper-row .col ul li{
+    background: white;
+}
+
+.row.description-row{
+    /*background: #b3d8f9;*/
+    margin-left: 3em;
+    margin-right: 1em;
+    /*margin-bottom: 2em;*/
+}
+
+
+.foods-wrapper-row {
+    /*background: #b3d8f9; */
+    margin-left: 3em;
+    margin-right: 1em;
+    /*margin-bottom: 2em;*/
+}
+
 .foods-wrapper-row .col {
-    background: #b3d8f9;
+    /*background: #b3d8f9;*/
     margin-left: 1em;
     margin-bottom: 2em;
     padding-bottom: 1.6em;
 }
 
-.row.description-row,
-.foods-wrapper-row {
-    background: #b3d8f9;
-    margin-left: 3em;
-    margin-bottom: 2em;
+.foods-wrapper-row .col ul li{
+    /*background: #b3d8f9;*/
+    padding-left: 1em;
+    margin-bottom: 7px;
 }
 
 .row.header-row{
@@ -114,11 +133,12 @@ body {
 
 .beer-row {
     border-bottom: 1px solid #a8a5a5;
+    margin-right: 0;
+    margin-left: 0;
 }
 
 .description-row .col {
     padding-left: 1em;
-    background: #b3d8f9;
 }
 
 .row.description-header-row,

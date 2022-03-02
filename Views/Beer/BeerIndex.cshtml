@@ -60,46 +60,48 @@
         </div>
         @foreach (var item in Model)
         {
-            <div class="row beer-row">
-                <div class="col-7 beer-name">
-                    @Html.DisplayFor(modelItem => item.Name)
+            <div class="beer">       
+                <div class="row beer-row">
+                    <div class="col-7 beer-name">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </div>
+                    <div class="col-2 beer-apv">
+                        @Html.DisplayFor(modelItem => item.Abv)
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="details-link" id="@item.Id">Show details</a>
+                    </div>
                 </div>
-                <div class="col-2 beer-apv">
-                    @Html.DisplayFor(modelItem => item.Abv)
-                </div>
-                <div class="col-3">
-                    <a href="#" class="details-link" id="@item.Id">Show details</a>
-                </div>
-            </div>
 
-            <div class="row header-row description-header-row" id="description-header-row-@item.Id">
-                <div class="col">
-                    Description:
+                <div class="row header-row description-header-row" id="description-header-row-@item.Id">
+                    <div class="col">
+                        Description:
+                    </div>
                 </div>
-            </div>
 
-            <div class="row description-row" id="description-row-@item.Id">
-                <div class="col">
-                    @Html.DisplayFor(modelItem => item.Description)
+                <div class="row description-row" id="description-row-@item.Id">
+                    <div class="col">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </div>
                 </div>
-            </div>
 
-            <div class="row header-row food-row food-header" id="food-header-@item.Id">
-                <div class="col">
-                    Dishes suiting this beer:
+                <div class="row header-row food-row food-header" id="food-header-@item.Id">
+                    <div class="col">
+                        Dishes suiting this beer:
+                    </div>
                 </div>
-            </div>
 
-            <div class="foods-wrapper-row foods-wrapper-row-@item.Id">
-                <div class="col">
-                    <ul class="food-list food-list-@item.Id">
-                        @foreach (var food in item.Food_pairing)
-                        {
-                            <li>
-                                @Html.DisplayFor(modelItem => food)
-                            </li>
-                        }
-                    </ul>
+                <div class="foods-wrapper-row foods-wrapper-row-@item.Id">
+                    <div class="col">
+                        <ul class="food-list food-list-@item.Id">
+                            @foreach (var food in item.Food_pairing)
+                            {
+                                <li>
+                                    @Html.DisplayFor(modelItem => food)
+                                </li>
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
         }
