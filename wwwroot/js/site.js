@@ -7,6 +7,11 @@ $(document).ready(function () {
 
         if ($(this).text() == "Show details") {
             reset();
+
+            // Scroll to current .beer
+            var aTag = $(this);
+            $('html,body').animate({ scrollTop: aTag.offset().top });
+
             $("#description-header-row-" + id).css("display", "inline-block");
             $("#description-row-" + id).slideDown("slow");
             $("#food-header-" + id).css("display", "inline-block");
