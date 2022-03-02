@@ -37,7 +37,7 @@ namespace ApoExTestB01.Controllers
             List<Beer> lst10Beers = null;
             HttpResponseMessage response = null;
 
-            if (!String.IsNullOrEmpty(searchString) && searchString.Length >= 3)
+            if (!String.IsNullOrEmpty(searchString) && searchString.Length >= 3 && searchString.Length <= 100)
             {
                 ViewBag.searchString = searchString;
                 searchString = searchString.Replace(" ", "_").Trim();

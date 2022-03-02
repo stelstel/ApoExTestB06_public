@@ -16,7 +16,7 @@
 <div class="searchForm">
     <form asp-controller="Beer" asp-action?="Index" method="get">
         <label for="searchstring">Search for beers:</label>
-        <input type="text" value="@ViewBag.searchstring" id="searchstring" name="searchstring" minlength="3" required>
+        <input type="text" value="@ViewBag.searchstring" id="searchstring" name="searchstring" minlength="3" maxlength="100" required>
         <input type="hidden" id="page" name="page" value="1">
         <input type="submit" value="Search">
     </form>
