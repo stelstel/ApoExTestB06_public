@@ -119,7 +119,7 @@ body {
 
 .foods-wrapper-row .col ul li{
     padding-left: 1em;
-    margin-bottom: 7px;
+    margin-bottom: 3px;
 }
 
 .row.header-row{
@@ -130,10 +130,13 @@ body {
     border-radius: 15px;
 }
 
+.beer:hover{
+    background: lightgray;
+}
+
 .beer-row {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    border-bottom: 1px solid #a8a5a5;
     margin-right: 0;
     margin-left: 0;
 }

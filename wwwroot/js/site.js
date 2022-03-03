@@ -20,10 +20,7 @@ $(document).ready(function () {
             $(this).text("Hide details");
 
             // All .beer-row(s)
-            $(".beer-row .beer-name, .beer-row .beer-apv").css("opacity", "40%");
-
-            // The the previous .beer
-            $(this).parent().parent().parent().prev().find(".beer-row").css("border-bottom", "none");
+            $(".beer-row .beer-name, .beer-row .beer-apv").css("opacity", "60%");
 
             // Current .beer
             $(this).parent().parent().parent().css("background", "lightgray");
@@ -49,7 +46,6 @@ $(document).ready(function () {
             $(".food-list").css("display", "none");
             $(".beer-row a").text("Show details");
             $(".beer-row").css("font-size", "100%");
-            $(".beer-row").css("border-bottom", "1px solid #a8a5a5");
             $(".beer-row .beer-name, .beer-row .beer-apv").css("opacity", "100%");
             $(".beer-row, .beer").css("background", "none");
             $(".beer").css("-webkit-box-shadow", "none");
