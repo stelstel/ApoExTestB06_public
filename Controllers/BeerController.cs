@@ -108,8 +108,57 @@ namespace ApoExTestB01.Controllers
                     ViewBag.msgTsUSer = "Something went wrong. Please try again!";
                 }
             }
+            else
+            {
+                var images = await getHomePageImages();
+
+                if(images != null)
+                {
+                    ViewBag.images = images;
+                }
+            }
 
             return View("BeerIndex", lst10Beers);
+        }
+
+        private async Task<List<string>> getHomePageImages()
+        {
+            var images = new List<string>();
+            int nrOfBeers = 2;
+            
+            try
+            {
+                HttpResponseMessage response = null;
+                List<Beer> lstBeers = null;
+
+                do
+                {
+                    response = await m_HttpClient.GetAsync(
+                        "/v2/beers/random"
+                     );
+
+                    response.EnsureSuccessStatusCode();
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string strResponseResult = await response.Content.ReadAsStringAsync();
+
+                        lstBeers = JsonConvert.DeserializeObject<List<Beer>>(strResponseResult);
+
+                        if (lstBeers != null && lstBeers.Count > 0 && lstBeers[0].Image_url != null)
+                        {
+                            images.Add(lstBeers[0].Image_url.ToString());
+                        }
+                    }
+                } while (images == null || images.Count < nrOfBeers) ;
+
+            }
+            catch (Exception e)
+            {
+                // ViewBag.msgTsUSer = e.Message; // TODO
+            }
+
+            return images;
         }
     }
 }

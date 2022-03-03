@@ -16,7 +16,6 @@ namespace ApoExTestB01.Models
 
         public string Description { get; set; }
         public string[] Food_pairing { get; set; }
-
-
+        public string Image_url { get; set; }
     }
 }

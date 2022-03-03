@@ -100,10 +100,8 @@ body {
 }
 
 .row.description-row{
-    /*background: #b3d8f9;*/
     margin-left: 3em;
     margin-right: 1em;
-    /*margin-bottom: 2em;*/
 }
 
 .foods-wrapper-row {
@@ -177,9 +175,28 @@ footer {
     border-top: 1px solid #000;
 }
 
-img#frontpage-beer {
-    height: 60vh;
-    display: block;
+.beer-images {
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+@media (max-width: 992px) {
+    .beer-images {
+        margin-top: 3em;
+    }
+}
+
+@media (max-width: 576px) {
+    .beer-images {
+        margin-top: 5em;
+    }
+}
+
+.beer-image {
+    height: 25em;
+    max-width: 33%;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }

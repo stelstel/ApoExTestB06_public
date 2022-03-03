@@ -30,16 +30,21 @@
     </div>
 }
 
-@if (Model == null)
+@if (Model == null && ViewBag.images != null)
 {
-    <img id="frontpage-beer" src="https://images.punkapi.com/v2/94.png" alt="A bottle of beer" />
+    <div class="beer-images">
+        @foreach (string image in ViewBag.images)
+        {
+            <img class="beer-image img-fluid" src="@image" alt="A bottle of beer" />
+        }
+    </div>
 }
 
-@if(Model != null)
+@if (Model != null)
 {
     @if (@ViewBag.nrOfBeers == 1)
     {
-        <p class="nr-of-beers">One beer found:</p> 
+        <p class="nr-of-beers">One beer found:</p>
     }
     else
     {
@@ -60,7 +65,7 @@
         </div>
         @foreach (var item in Model)
         {
-            <div class="beer">       
+            <div class="beer">
                 <div class="row beer-row">
                     <div class="col-8 beer-name">
                         @Html.DisplayFor(modelItem => item.Name)
