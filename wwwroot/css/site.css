@@ -148,8 +148,8 @@ body {
     margin: 1em 1em 0.5em auto;
 }
 
-p.nr-of-beers {
-    font-weight: bold;
+h4.nr-of-beers {
+    margin-bottom: 1em;
 }
 
 .pagination {
@@ -159,10 +159,6 @@ p.nr-of-beers {
 header .navbar,
 footer{
     background: lightgray;
-}
-
-header .navbar,
-footer{
     -webkit-box-shadow: 0px 1px 3px 2px #000000;
     box-shadow: 0px 1px 3px 2px #000000;
 }
@@ -191,4 +187,16 @@ footer {
     max-width: 7em;
     margin-left: 0.5em;
     margin-right: 0.5em;
+}
+
+h1,
+footer,
+.navbar-brand,
+.row.header-row {
+    font-family: 'Readex Pro', sans-serif;
+}
+
+/* Not used since only one link exists in navbar */
+.navbar-toggler {
+    display:none;
 }
