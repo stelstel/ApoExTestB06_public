@@ -33,12 +33,15 @@
     @if (Model == null && ViewBag.images != null)
     {
         <div class="row beer-images align-items-center">
-            @foreach (string image in ViewBag.images)
-            {
-                <div class="col">
-                    <img class="beer-image img-responsive" src="@image" alt="A bottle of beer" />
-                </div>
-            }
+            <div class="col-12 col-sm-6 col-md-4">
+                <img class="beer-image img-responsive" src="@ViewBag.images[0]" alt="A X bottle of beer" />
+            </div>
+            <div class="col-sm-6 col-md-4 d-none d-sm-block">
+                <img class="beer-image img-responsive" src="@ViewBag.images[1]" alt="A XX bottle of beer" />
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+                <img class="beer-image img-responsive" src="@ViewBag.images[2]" alt="A XXX bottle of beer" />
+            </div>
         </div>
     }
 
