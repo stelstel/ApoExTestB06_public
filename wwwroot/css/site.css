@@ -177,10 +177,9 @@ footer {
 
 .beer-images {
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 10%;
+    margin-right: 10%;
 }
-
 
 @media (max-width: 992px) {
     .beer-images {
@@ -194,9 +193,8 @@ footer {
     }
 }
 
-.beer-image {
-    height: 25em;
-    max-width: 33%;
+.beer-images .beer-image {
+    max-width: 7em;
     margin-left: 0.5em;
     margin-right: 0.5em;
 }

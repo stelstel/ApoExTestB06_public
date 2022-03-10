@@ -124,7 +124,7 @@ namespace ApoExTestB01.Controllers
         private async Task<List<string>> getHomePageImages()
         {
             var images = new List<string>();
-            int nrOfBeers = 2;
+            int nrOfBeers = 3;
             
             try
             {
