@@ -7,20 +7,24 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace ApoExTestB01.Controllers
 {
     public class BeerController : Controller
     {
         private readonly HttpClient m_HttpClient;
+        private readonly ILogger<BeerController> _logger;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="httpClientFactory">HttpClientFactory</param>
-        public BeerController(IHttpClientFactory httpClientFactory)
+        public BeerController(IHttpClientFactory httpClientFactory, ILogger<BeerController> logger)
         {
+            _logger = logger;
             this.m_HttpClient = httpClientFactory.CreateClient("PunkApiHttpClient");
+            _logger.LogInformation("Page has been accessed"); //TODO remove
         }
 
         /// <summary>
@@ -103,9 +107,10 @@ namespace ApoExTestB01.Controllers
                         throw new Exception();
                     }
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     ViewBag.msgTsUSer = "Something went wrong. Please try again!";
+                    _logger.LogInformation(e.Message); // TODO
                 }
             }
             else
@@ -135,7 +140,9 @@ namespace ApoExTestB01.Controllers
                 {
                     response = await m_HttpClient.GetAsync(
                         "/v2/beers/random"
-                     );
+                    );
+
+                    // response = null; //TODO
 
                     response.EnsureSuccessStatusCode();
 
@@ -150,12 +157,16 @@ namespace ApoExTestB01.Controllers
                             images.Add(lstBeers[0].Image_url.ToString());
                         }
                     }
+                    else
+                    {
+                        throw new Exception();
+                    }
                 } while (images == null || images.Count < nrOfBeers) ;
 
             }
             catch (Exception e)
             {
-                // ViewBag.msgTsUSer = e.Message; // TODO
+                _logger.LogInformation(e.Message); // TODO
             }
 
             return images;
