@@ -142,8 +142,6 @@ namespace ApoExTestB01.Controllers
                         "/v2/beers/random"
                     );
 
-                    response = null; //TODO
-
                     response.EnsureSuccessStatusCode();
 
                     if (response.IsSuccessStatusCode)
