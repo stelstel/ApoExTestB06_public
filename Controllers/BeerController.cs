@@ -142,7 +142,7 @@ namespace ApoExTestB01.Controllers
                         "/v2/beers/random"
                     );
 
-                    // response = null; //TODO
+                    response = null; //TODO
 
                     response.EnsureSuccessStatusCode();
 
@@ -168,7 +168,7 @@ namespace ApoExTestB01.Controllers
             {
                 _logger.LogInformation(e.Message); // TODO
             }
-
+            
             return images;
         }
     }
