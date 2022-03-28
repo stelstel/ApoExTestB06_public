@@ -15,6 +15,7 @@ namespace ApoExTestB01.Controllers
     {
         private readonly HttpClient m_HttpClient;
         private readonly ILogger<BeerController> _logger;
+        private static bool startOfLogFlag = true;
 
         /// <summary>
         /// Constructor
@@ -24,7 +25,6 @@ namespace ApoExTestB01.Controllers
         {
             _logger = logger;
             this.m_HttpClient = httpClientFactory.CreateClient("PunkApiHttpClient");
-            _logger.LogInformation("Page has been accessed"); //TODO remove
         }
 
         /// <summary>
@@ -40,6 +40,15 @@ namespace ApoExTestB01.Controllers
             List<Beer> lstBeers = null;
             List<Beer> lst10Beers = null;
             HttpResponseMessage response = null;
+
+            // Mark start of log
+            if (startOfLogFlag)
+            {
+                _logger.LogInformation("#");
+                _logger.LogInformation("##");
+                _logger.LogInformation("###############################################");
+                startOfLogFlag = false;
+            }
 
             if (!String.IsNullOrEmpty(searchString) && searchString.Length >= 3 && searchString.Length <= 100)
             {
