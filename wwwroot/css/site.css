@@ -72,6 +72,16 @@ body {
 
 
 /******* The CSS below was added by Stefan Elmgren *************************************/
+body {
+    font-family: 'Monda', sans-serif;
+}
+
+h1,
+footer,
+.navbar-brand,
+.row.header-row {
+    font-family: 'Readex Pro', sans-serif;
+}
 
 .alert {
     width: 80%;
@@ -187,13 +197,6 @@ footer {
     max-width: 7em;
     margin-left: 0.5em;
     margin-right: 0.5em;
-}
-
-h1,
-footer,
-.navbar-brand,
-.row.header-row {
-    font-family: 'Readex Pro', sans-serif;
 }
 
 /* Not used since only one link exists in navbar */
