@@ -29,7 +29,7 @@
         </div>
     }
 
-    @if (Model == null && ViewBag.images.Count > 0)
+    @if (Model == null && ViewBag.images != null && ViewBag.images.Count > 0)
     {
         <div class="row beer-images align-items-center">
             <div class="col-12 col-sm-6 col-md-4">
