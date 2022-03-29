@@ -39,12 +39,12 @@ namespace ApoExTestB01.Controllers
             int beersPerPage = 10;
             List<Beer> lstBeers = null;
             List<Beer> lst10Beers = null;
-            HttpResponseMessage response = null;
+            HttpResponseMessage response;
 
             // Mark start of log
             if (startOfLogFlag)
             {
-                _logger.LogInformation(Environment.NewLine + "" + Environment.NewLine);
+                _logger.LogInformation($"{Environment.NewLine} {Environment.NewLine}");
                 _logger.LogInformation("###############################################");
                 startOfLogFlag = false;
             }
@@ -123,7 +123,7 @@ namespace ApoExTestB01.Controllers
             }
             else
             {
-                var images = await getHomePageImages();
+                var images = await GetHomePageImages();
 
                 if(images != null)
                 {
@@ -134,7 +134,7 @@ namespace ApoExTestB01.Controllers
             return View("BeerIndex", lst10Beers);
         }
 
-        private async Task<List<string>> getHomePageImages()
+        private async Task<List<string>> GetHomePageImages()
         {
             var images = new List<string>();
             int nrOfBeers = 3;
