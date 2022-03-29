@@ -44,8 +44,7 @@ namespace ApoExTestB01.Controllers
             // Mark start of log
             if (startOfLogFlag)
             {
-                _logger.LogInformation(Environment.NewLine);
-                _logger.LogInformation(Environment.NewLine);
+                _logger.LogInformation(Environment.NewLine + "" + Environment.NewLine);
                 _logger.LogInformation("###############################################");
                 startOfLogFlag = false;
             }
