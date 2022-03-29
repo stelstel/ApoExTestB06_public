@@ -124,11 +124,8 @@
                 {
                     @if (ViewBag.page == i + 1)
                     {
-                        @Html.ActionLink("Page " + (i + 1),
-                            "Index", "Beer",
-                            new { searchstring = ViewBag.searchString, page = i + 1 },
-                            new { @class = "nav-link active" }
-                        );
+                        // Active nav-pill nav-link
+                        <p class="nav-link active">Page @(i+1)</p>
                     }
                     else
                     {
