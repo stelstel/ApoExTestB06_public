@@ -118,7 +118,7 @@ namespace ApoExTestB01.Controllers
                 catch (Exception e)
                 {
                     ViewBag.msgTsUSer = "Something went wrong. Please try again!";
-                    _logger.LogInformation(e.Message); // TODO
+                    _logger.LogInformation(e, e.Message);
                 }
             }
             else
@@ -172,7 +172,7 @@ namespace ApoExTestB01.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation(e.Message); // TODO
+                _logger.LogInformation(e, e.Message);
             }
             
             return images;
